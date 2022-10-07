@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  title: ReferenceManagementServiceAPI
+  version: "1.0"
+  x-generated-on: 2022-01-11T07:09:55.4937813
+servers:
+- url: /
+tags:
+- externalDocs:
+    description: "PaperArchiveFacade contract, Information Holder Resource role"
+    url: https://microservice-api-patterns.org/patterns/responsibility/endpointRoles/InformationHolderResource.html
+  name: PaperArchiveFacade
+paths:
+  /PaperArchiveFacade:
+    get:
+      description: "[Retrieval Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/RetrievalOperation.html)."
+      operationId: lookupPapersFromAuthor
+      parameters:
+      - description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+          target="_blank">Data Element</a>
+        explode: true
+        in: query
+        name: author
+        required: true
+        schema:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PaperItemDTO'
+                type: array
+          description: lookupPapersFromAuthor successful execution
+      summary: lookupPapersFromAuthor (read only method)
+      tags:
+      - PaperArchiveFacade
+      x-accepts: application/json
+      x-tags:
+      - tag: PaperArchiveFacade
+    post:
+      description: ""
+      operationId: convertToMarkdownForWebsite
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaperItemKey'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/convertToMarkdownForWebsite_200_response'
+          description: convertToMarkdownForWebsite successful execution
+      summary: convertToMarkdownForWebsite
+      tags:
+      - PaperArchiveFacade
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: PaperArchiveFacade
+    put:
+      description: "[State Creation Operation](https://microservice-api-patterns.org/patterns/responsibility/operationResponsibilities/StateCreationOperation.html)."
+      operationId: createPaperItem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createPaperItemParameter'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaperItemDTO'
+          description: createPaperItem successful execution
+      summary: createPaperItem (write only method)
+      tags:
+      - PaperArchiveFacade
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: PaperArchiveFacade
+    summary: general data-oriented endpoint
+components:
+  schemas:
+    PaperItemDTO:
+      example:
+        venue: venue
+        paperItemId:
+          doi: doi
+        title: title
+        authors: authors
+      properties:
+        title:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        authors:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        venue:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        paperItemId:
+          $ref: '#/components/schemas/PaperItemKey'
+      type: object
+    PaperItemKey:
+      example:
+        doi: doi
+      properties:
+        doi:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+      type: object
+    createPaperItemParameter:
+      properties:
+        who:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        what:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+        where:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+      type: object
+    convertToMarkdownForWebsite_200_response:
+      example:
+        anonymous3: anonymous3
+      properties:
+        anonymous3:
+          description: <a href="https://microservice-api-patterns.org/patterns/structure/elementStereotypes/DataElement"
+            target="_blank">Data Element</a>
+          type: string
+      type: object

@@ -1,8 +1,7 @@
-package com.mkyong.core.services;
+package com.kevin.mockito.demo.services;
 
 public interface HelloService {
 
     String get();
-    String get1();
 
 }

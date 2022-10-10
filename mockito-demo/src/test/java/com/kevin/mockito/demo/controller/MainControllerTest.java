@@ -1,6 +1,7 @@
-package com.mkyong.core.controller;
+package com.kevin.mockito.demo.controller;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;

@@ -1,4 +1,4 @@
-package com.mkyong.core.controller;
+package com.kevin.mockito.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

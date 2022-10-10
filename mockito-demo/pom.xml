@@ -5,12 +5,12 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kevin.mockito.demo1</groupId>
-    <artifactId>JUnit5 Mockito Demo 1</artifactId>
+    <groupId>com.kevin.mockito.demo</groupId>
+    <artifactId>mockito-demo</artifactId>
     <version>1.0</version>
 
     <properties>
-        <java.version>1.11</java.version>
+        <java.version>1.8</java.version>
         <junit-jupiter.version>5.9.1</junit-jupiter.version>
 <!--        <mockito.version>2.24.0</mockito.version>-->
     </properties>
@@ -81,30 +81,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
             </plugin>
-
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>6.2.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
-                            <generatorName>spring</generatorName>
-                            <apiPackage>com.huongdanjava.openapispring.web</apiPackage>
-                            <modelPackage>com.huongdanjava.openapispring.dto</modelPackage>
-                            <output>.</output>
-                            <configOptions>
-                                <delegatePattern>true</delegatePattern>
-                            </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
         </plugins>
     </build>
 

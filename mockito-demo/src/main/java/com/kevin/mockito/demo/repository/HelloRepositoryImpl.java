@@ -1,4 +1,4 @@
-package com.mkyong.core.repository;
+package com.kevin.mockito.demo.repository;
 
 import org.springframework.stereotype.Repository;
 

@@ -29,6 +29,9 @@ public class VietlottUtils {
             int number = r.nextInt(bound + 1);
             String numberStr;
             numberStr = String.valueOf(number);
+            if (number == 0) {
+                continue;
+            }
             if (number < 10) {
                 numberStr = "0" + numberStr;
             }
